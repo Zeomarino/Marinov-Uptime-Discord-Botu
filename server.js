@@ -63,13 +63,15 @@ client.on("message", message => {
 let embed = new Discord.RichEmbed()
 .setColor('#4ca74c')
 .addField(`Uptime Bot v1.0 Help`, `Includes a system that keeps uptime bot glitch sites open 24/7. The links in the system operate 24/7 without any maintenance.`)
-.addField(`General Commands
+.addField(`General Commands`,`
 
 \`u.help\` - Displays the help menu.
 \`u.add\` - Adds the link you specified to the system.
 \`u.say\` - It shows the number of links in the system.
 `)
-.addField(`Links`, `[OnlyCode]() [Add to Server]()`)
+.addField(`Links`, `[OnlyCode](https://discord.gg/qVzp2cm)
+[Add to Server](https://discord.com/oauth2/authorize?client_id=727978641702649966&scope=bot&permissions=8)
+[Support Server](https://discord.gg/axczJaR)`)
 .setThumbnail(client.user.avatarURL)
 .setAuthor(`Uptime`, client.user.avatarURL)
 .setFooter(`2020 © Uptime | Coded by MertBhey, Edited by Alfonzo.`, client.user.avatarURL)
