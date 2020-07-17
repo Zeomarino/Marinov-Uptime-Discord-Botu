@@ -56,23 +56,42 @@ client.on("message", message => {
 
 const Discord = require('discord.js');
 
-/*client.on("message", message => {
+client.on("message", message => {
   if(message.author.bot) return;
     var spl = message.content.split(" ");
   if(spl[0] == "u.help") {
 let embed = new Discord.RichEmbed()
 .setColor('#4ca74c')
-.setDescription(`**Uptime Bot Commands v1.0**
+.addField(`Uptime Bot v1.0 Help`, `Includes a system that keeps uptime bot glitch sites open 24/7. The links in the system operate 24/7 without any maintenance.`)
+.addField(`General Commands
 
 \`u.help\` - Displays the help menu.
 \`u.add\` - Adds the link you specified to the system.
 \`u.say\` - It shows the number of links in the system.
 `)
+.addField(`Links`, `[OnlyCode]() [Add to Server]()`)
 .setThumbnail(client.user.avatarURL)
 .setAuthor(`Uptime`, client.user.avatarURL)
 .setFooter(`2020 © Uptime | Coded by MertBhey, Edited by Alfonzo.`, client.user.avatarURL)
 return message.channel.send(embed);
     }
+ 
+})
+
+
+/*client.on("message", message => {
+  if(message.author.bot) return;
+    var spl = message.content.split(" ");
+  if(spl[0] == "u.help") {
+message.channel.send(`**Uptime Bot Commands v1.0**
+
+\`u.help\` - Displays the help menu.
+\`u.add\` - Adds the link you specified to the system.
+\`u.say\` - It shows the number of links in the system.
+
+2020 © Uptime | Coded by MertBhey, Edited by Alfonzo.
+`)
+  }
  
 })*/
 
