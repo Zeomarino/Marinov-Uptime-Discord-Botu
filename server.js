@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db");
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("");
+client.login("NzI3OTc4NjQxNzAyNjQ5OTY2.XxG4ZA.5hKwigc3Wk8Ts_zha2ruRfcoiLI");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -28,7 +28,7 @@ db.set("linkler", [])
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "p!ekle") {
+  if(spl[0] == "!ekle") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("zaten vad")
@@ -42,8 +42,8 @@ client.on("message", message => {
 
 client.on("message", async message => {
 
-  if(!message.content.startsWith("p!eval")) return;
-  if(!["623932457401450496","677980604272476171"].includes(message.author.id)) return;
+  if(!message.content.startsWith("!eval")) return;
+  if(!["689169122604744833","689169122604744833"].includes(message.author.id)) return;
   var args = message.content.split("p!eval")[1]
   if(!args) return message.channel.send(":warning: | Kod?")
   
