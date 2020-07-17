@@ -25,17 +25,38 @@ db.set("linkler", [])
 }
 })
 
+client.on("ready", () => {
+  client.user.setActivity(`!add <glitch url> - (Write as DM)`)
+})
+
+
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "!ekle") {
+  if(spl[0] == "!add") {
   var link = spl[1]
   fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("zaten vad")
-    message.channel.send("eklend");
+    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("<:asuna_no:732219380795965471> Already Available!")
+    message.channel.send("<:asuna_yes:732219381085503529> Successful!");
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
-    return message.channel.send("Hata: " + e)
+    return message.channel.send("<:asuna_no:732219380795965471> " + e)
+  })
+  }
+})
+
+
+client.on("message", message => {
+  if(message.author.bot) return;
+  var spl = message.content.split(" ");
+  if(spl[0] == "!add") {
+  var link = spl[1]
+  fetch(link).then(() => {
+    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("<:asuna_no:732219380795965471> Already Available!")
+    message.channel.send("<:asuna_yes:732219381085503529> Successful!");
+    db.push("linkler", { url: link, owner: message.author.id})
+  }).catch(e => {
+    return message.channel.send("<:asuna_no:732219380795965471> " + e)
   })
   }
 })
@@ -44,8 +65,8 @@ client.on("message", async message => {
 
   if(!message.content.startsWith("!eval")) return;
   if(!["689169122604744833","689169122604744833"].includes(message.author.id)) return;
-  var args = message.content.split("p!eval")[1]
-  if(!args) return message.channel.send(":warning: | Kod?")
+  var args = message.content.split("!eval")[1]
+  if(!args) return message.channel.send("<:asuna_no:732219380795965471> ..")
   
       const code = args
     
