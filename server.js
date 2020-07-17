@@ -26,14 +26,14 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`!add <glitch url> - (Write as DM)`)
+  client.user.setActivity(`u.help | ${db.get("linkler").length}`)
 })
 
 
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "!add") {
+  if(spl[0] == "u.add") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("<:asuna_no:732219380795965471> Already Available!")
@@ -49,23 +49,28 @@ client.on("message", message => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "!add") {
+  if(spl[0] == "u.say") {
   var link = spl[1]
-  fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("<:asuna_no:732219380795965471> Already Available!")
-    message.channel.send("<:asuna_yes:732219381085503529> Successful!");
-    db.push("linkler", { url: link, owner: message.author.id})
-  }).catch(e => {
-    return message.channel.send("<:asuna_no:732219380795965471> " + e)
-  })
-  }
-})
+ message.channel.send(db.get("linkler").length)
+}})
+
+client.on("message", message => {
+  if(message.author.bot) return;
+    var spl = message.content.split(" ");
+  if(spl[0] == "u.help") {
+ message.channel.send(`**Uptime Bot Commands v1.0**
+
+\`u.help\` - Displays the help menu.
+\`u.add\` - Adds the link you specified to the system.
+\`u.say\` - It shows the number of links in the system.`)
+}})
+
 
 client.on("message", async message => {
 
-  if(!message.content.startsWith("!eval")) return;
+  if(!message.content.startsWith("u.eval")) return;
   if(!["689169122604744833","689169122604744833"].includes(message.author.id)) return;
-  var args = message.content.split("!eval")[1]
+  var args = message.content.split("u.eval")[1]
   if(!args) return message.channel.send("<:asuna_no:732219380795965471> ..")
   
       const code = args
