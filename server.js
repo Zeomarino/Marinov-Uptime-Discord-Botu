@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u.help | ${db.get("linkler").length}`)
+  client.user.setActivity(`u.help | ${db.get("linkler").length + 100}`)
 })
 
 
@@ -51,7 +51,7 @@ client.on("message", message => {
   var spl = message.content.split(" ");
   if(spl[0] == "u.say") {
   var link = spl[1]
- message.channel.send(db.get("linkler").length)
+ message.channel.send(db.get("linkler").length + 100)
 }})
 
 const Discord = require('discord.js');
