@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db");
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("NzI3OTc4NjQxNzAyNjQ5OTY2.Xvzs8Q.HDNkOoipoDYpk8X3lUwTL2vv0qA");
+client.login("NzI3OTc4NjQxNzAyNjQ5OTY2.Xvzs8Q.MCEkEDKLzRuJifGc58ZZ63tFhK0");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u.help | ${db.get("linkler").length + 100} / ${client.guilds.size}`)
+  client.user.setActivity(`Sıfırlandı tekrar ekleyin | u.help | ${db.get("linkler").length} / ${client.guilds.size}`)
   console.log(`Logined`)
 })
 
@@ -52,7 +52,7 @@ client.on("message", message => {
   var spl = message.content.split(" ");
   if(spl[0] == "u.say") {
   var link = spl[1]
- message.channel.send(`${db.get("linkler").length + 100} / ${client.guilds.size}`)
+ message.channel.send(`${db.get("linkler").length} / ${client.guilds.size}`)
 }})
 
 
