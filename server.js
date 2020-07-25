@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`Sıfırlandı tekrar ekleyin | u.help | ${db.get("linkler").length} / ${client.guilds.size}`)
+  client.user.setActivity(`u.help | ${db.get("linkler").length} / ${client.guilds.size}`)
   console.log(`Logined`)
 })
 
