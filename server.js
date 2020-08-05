@@ -16,7 +16,7 @@ setInterval(() => {
       fetch(link)
     } catch(e) { console.log("" + e) };
   })
-  console.log("Pong! Requests sent")
+  console.log("Başarıyla Pinglendi.")
 }, 60000)
 
 client.on("ready", () => {
