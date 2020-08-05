@@ -34,11 +34,11 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "u.add") {
+  if(spl[0] == "!ekle") {
   var link = spl[1]
   fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("<:asuna_no:732219380795965471> Already Available!")
-    message.channel.send("<:asuna_yes:732219381085503529> Successful!");
+    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("<:asuna_no:732219380795965471> Zaten Eklenmiş!")
+    message.channel.send("<:asuna_yes:732219381085503529> Başarılı!");
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
     return message.channel.send("<:asuna_no:732219380795965471> " + e)
@@ -50,7 +50,7 @@ client.on("message", message => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "u.say") {
+  if(spl[0] == "!botsay") {
   var link = spl[1]
  message.channel.send(`${db.get("linkler").length} / ${client.guilds.size}`)
 }})
@@ -62,43 +62,26 @@ const Discord = require('discord.js');
 client.on("message", message => {
   if(message.author.bot) return;
     var spl = message.content.split(" ");
-  if(spl[0] == "u.help") {
+  if(spl[0] == "!yardım") {
 let embed = new Discord.RichEmbed()
 .setColor('#4ca74c')
-.addField(`Uptime Bot v1.0 Help`, `Includes a system that keeps uptime bot glitch sites open 24/7. The links in the system operate 24/7 without any maintenance.`)
-.addField(`General Commands`,`
+.addField(`Uptime Bot v1.0 Yardım`, `Bot glitch sitelerinin 7/24 açık çalışmasını sağlayan bir sistem içerir. Sistemdeki bağlantılar herhangi bir bakım gerektirmeden 7/24 çalışır.`)
+.addField(`Genel Komutlar`,`
 
-\`u.help\` - Displays the help menu.
-\`u.add\` - Adds the link you specified to the system.
-\`u.say\` - It shows the number of links in the system.
+\`!yardım\` - Yardım Menüsünü Gösterir.
+\`!ekle\` - Sisteme Bot Eklersiniz.
+\`!botsay\` - Sistemde Kaç Bot Olduğunu Listeler.
 `)
-.addField(`Links`, `[OnlyCode](https://discord.gg/qVzp2cm)
-[Add to Server](https://discord.com/oauth2/authorize?client_id=727978641702649966&scope=bot&permissions=8)
-[Support Server](https://discord.gg/axczJaR)`)
+.addField(`Link`, `[Loz 'Bey](https://discord.gg/WbMUB2k)
+[Botumuzu Ekleyin](https://discord.com/oauth2/authorize?client_id=727978641702649966&scope=bot&permissions=8)
+[Destek Sunucumuz](https://discord.gg/WbMUB2k)`)
 .setThumbnail(client.user.avatarURL)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`2020 © Uptime | Coded by MertBhey, Edited by Alfonzo.`, client.user.avatarURL)
+.setFooter(`2020 © Uptime | Kodlayan MertBhey, Editleyenler Alfonzo, Loz 'Bey.`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
 })
-
-
-/*client.on("message", message => {
-  if(message.author.bot) return;
-    var spl = message.content.split(" ");
-  if(spl[0] == "u.help") {
-message.channel.send(`**Uptime Bot Commands v1.0**
-
-\`u.help\` - Displays the help menu.
-\`u.add\` - Adds the link you specified to the system.
-\`u.say\` - It shows the number of links in the system.
-
-2020 © Uptime | Coded by MertBhey, Edited by Alfonzo.
-`)
-  }
- 
-})*/
 
 
 client.on("message", async message => {
