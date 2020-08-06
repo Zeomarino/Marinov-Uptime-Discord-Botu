@@ -9,7 +9,7 @@ const fs = require('fs')
 
 setInterval(() => {
   var links = db.get("linkler");
-  if(!links) return;
+  if(!links) return 
   var linkA = links.map(c => c.url)
   linkA.forEach(link => {
     try {
@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`p!yardım | ${db.get("linkler").length} / 1000`)
+  client.user.setActivity(`p!yardım | GamerWolf`)
   console.log(`Logined`)
 })
 
@@ -34,7 +34,7 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "p!ekle") {
+  if(spl[0] == "p!uptime") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**<a:NO:713356411458814022> Zaten Eklenmiş !!!**")
@@ -69,7 +69,7 @@ let embed = new Discord.RichEmbed()
 .addField(`Genel Komutlar`,`
 
 \`p!yardım\` - Yardım Menüsünü Gösterir.
-\`p!ekle\` - Sisteme Bot Eklersiniz.
+\`p!uptime\` - Sisteme Bot Eklersiniz.
 \`p!botsay\` - Sistemde Kaç Bot Olduğunu Listeler.
 `)
 .addField(`Link`, `[GamerWolf - YouTube](https://www.youtube.com/channel/UCru0cqYPRfERBkQ_uRtcFdw)
