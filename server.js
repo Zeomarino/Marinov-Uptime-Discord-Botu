@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`p!yardım | ${db.get("linkler").length} / ${client.guilds.size}`)
+  client.user.setActivity(`p!yardım | ${db.get("linkler").length} / 1000`)
   console.log(`Logined`)
 })
 
@@ -52,7 +52,7 @@ client.on("message", message => {
   var spl = message.content.split(" ");
   if(spl[0] == "p!botsay") {
   var link = spl[1]
- message.channel.send(`**${db.get("linkler").length} / ${client.guilds.size}**`)
+ message.channel.send(`**${db.get("linkler").length} / 1000**`)
 }})
 
 
