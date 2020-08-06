@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u.help | ${db.get("linkler").length} / ${client.guilds.size}`)
+  client.user.setActivity(`p!yardım | ${db.get("linkler").length} / ${client.guilds.size}`)
   console.log(`Logined`)
 })
 
@@ -34,15 +34,14 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "!ekle") {
+  if(spl[0] == "p!ekle") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**<a:NO:713356411458814022> Zaten Eklenmiş !!!**")
     message.channel.send("**<a:YES:713356424159428649> Başarılı Bir Şekilde 7/24 Yapıldı !!!**");
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
-    return message.channel.send("<a:NO:713356411458814022> " + 
-TypeError: Yalnızca mutlak URL'ler desteklenir)
+    return message.channel.send("<a:NO:713356411458814022> **Error Yalnızca Mutlak URL'ler Desteklenir.**")
   })
   }
 })
@@ -51,9 +50,9 @@ TypeError: Yalnızca mutlak URL'ler desteklenir)
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "!botsay") {
+  if(spl[0] == "p!botsay") {
   var link = spl[1]
- message.channel.send(`${db.get("linkler").length} / ${client.guilds.size}`)
+ message.channel.send(`**${db.get("linkler").length} / ${client.guilds.size}**`)
 }})
 
 
@@ -63,22 +62,22 @@ const Discord = require('discord.js');
 client.on("message", message => {
   if(message.author.bot) return;
     var spl = message.content.split(" ");
-  if(spl[0] == "!yardım") {
+  if(spl[0] == "p!yardım") {
 let embed = new Discord.RichEmbed()
 .setColor('#4ca74c')
-.addField(`Uptime Bot v1.0 Yardım`, `Bot glitch sitelerinin 7/24 açık çalışmasını sağlayan bir sistem içerir. Sistemdeki bağlantılar herhangi bir bakım gerektirmeden 7/24 çalışır.`)
+.addField(`Uptime Bot Yardım Sistemi`, `**Bot Glitch Sitelerinin 7/24 Açık Çalışmasını Sağlayan Bir Sistem İçerir. Sistemdeki Bağlantılar Herhangi Bir Bakım Gerektirmeden 7/24 Çalışır.**`)
 .addField(`Genel Komutlar`,`
 
-\`!yardım\` - Yardım Menüsünü Gösterir.
-\`!ekle\` - Sisteme Bot Eklersiniz.
-\`!botsay\` - Sistemde Kaç Bot Olduğunu Listeler.
+\`p!yardım\` - Yardım Menüsünü Gösterir.
+\`p!ekle\` - Sisteme Bot Eklersiniz.
+\`p!botsay\` - Sistemde Kaç Bot Olduğunu Listeler.
 `)
-.addField(`Link`, `[GamerWolf - YouTube](https://discord.gg/WbMUB2k)
+.addField(`Link`, `[GamerWolf - YouTube](https://www.youtube.com/channel/UCru0cqYPRfERBkQ_uRtcFdw)
 [Botumuzu Ekleyin](https://discord.com/oauth2/authorize?client_id=740875415786094604&scope=bot&permissions=8)
 [Destek Sunucumuz](https://discord.gg/HkQ9Uaf)`)
 .setThumbnail(client.user.avatarURL)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`2020 © Uptime | Kodlayan MertBhey, Editleyen GamerWolf.`, client.user.avatarURL)
+.setFooter(`**2020 © Uptime | Kodlayan MertBhey , Editleyen GamerWolf.**`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
@@ -87,9 +86,9 @@ return message.channel.send(embed);
 
 client.on("message", async message => {
 
-  if(!message.content.startsWith("!eval")) return;
+  if(!message.content.startsWith("p!eval")) return;
   if(!["573548185428164630","573548185428164630"].includes(message.author.id)) return;
-  var args = message.content.split("!eval")[1]
+  var args = message.content.split("p!eval")[1]
   if(!args) return message.channel.send("**<a:NO:713356411458814022> ..**")
   
       const code = args
