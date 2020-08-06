@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db");
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("token");
+client.login("NzQwODc1NDE1Nzg2MDk0NjA0.XyvX_w.Lxi4lbOJEpRF7GN0gQuhjXPr51s");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -37,11 +37,12 @@ client.on("message", message => {
   if(spl[0] == "!ekle") {
   var link = spl[1]
   fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("<:asuna_no:732219380795965471> Zaten Eklenmiş!")
-    message.channel.send("<:asuna_yes:732219381085503529> Başarılı!");
+    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**<a:NO:713356411458814022> Zaten Eklenmiş !!!**")
+    message.channel.send("**<a:YES:713356424159428649> Başarılı Bir Şekilde 7/24 Yapıldı !!!**");
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
-    return message.channel.send("<:asuna_no:732219380795965471> " + e)
+    return message.channel.send("<a:NO:713356411458814022> " + 
+TypeError: Yalnızca mutlak URL'ler desteklenir)
   })
   }
 })
@@ -72,12 +73,12 @@ let embed = new Discord.RichEmbed()
 \`!ekle\` - Sisteme Bot Eklersiniz.
 \`!botsay\` - Sistemde Kaç Bot Olduğunu Listeler.
 `)
-.addField(`Link`, `[Loz 'Bey](https://discord.gg/WbMUB2k)
-[Botumuzu Ekleyin](https://discord.com/oauth2/authorize?client_id=727978641702649966&scope=bot&permissions=8)
-[Destek Sunucumuz](https://discord.gg/WbMUB2k)`)
+.addField(`Link`, `[GamerWolf - YouTube](https://discord.gg/WbMUB2k)
+[Botumuzu Ekleyin](https://discord.com/oauth2/authorize?client_id=740875415786094604&scope=bot&permissions=8)
+[Destek Sunucumuz](https://discord.gg/HkQ9Uaf)`)
 .setThumbnail(client.user.avatarURL)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`2020 © Uptime | Kodlayan MertBhey, Editleyenler Alfonzo, Loz 'Bey.`, client.user.avatarURL)
+.setFooter(`2020 © Uptime | Kodlayan MertBhey, Editleyen GamerWolf.`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
@@ -86,10 +87,10 @@ return message.channel.send(embed);
 
 client.on("message", async message => {
 
-  if(!message.content.startsWith("u.eval")) return;
-  if(!["689169122604744833","689169122604744833"].includes(message.author.id)) return;
-  var args = message.content.split("u.eval")[1]
-  if(!args) return message.channel.send("<:asuna_no:732219380795965471> ..")
+  if(!message.content.startsWith("!eval")) return;
+  if(!["573548185428164630","573548185428164630"].includes(message.author.id)) return;
+  var args = message.content.split("!eval")[1]
+  if(!args) return message.channel.send("**<a:NO:713356411458814022> ..**")
   
       const code = args
     
