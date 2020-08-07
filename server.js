@@ -38,6 +38,7 @@ client.on("message", message => {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**<a:NO:713356411458814022> Zaten Eklenmiş !!!**")
+    
     let yardım = new Discord.RichEmbed()
         .setAuthor(client.user.username, client.user.avatarURL)
         .setColor(0x6A3DB8)
@@ -48,7 +49,14 @@ client.on("message", message => {
     message.channel.send();
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
-    return message.channel.send("<a:NO:713356411458814022> **Error Yalnızca Mutlak URL'ler Desteklenir.**")
+    let yardım = new Discord.RichEmbed()
+        .setAuthor(client.user.username, client.user.avatarURL)
+        .setColor(0x6A3DB8)
+        .setDescription("<a:NO:713356411458814022> **Error Yalnızca Mutlak URL'ler Desteklenir.**")
+        .setFooter(`© ${client.user.username}`, client.user.avatarURL)
+        .setTimestamp()
+    message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
+    return message.channel.send()
   })
   }
 })
