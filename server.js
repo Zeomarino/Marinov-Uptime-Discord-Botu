@@ -38,7 +38,14 @@ client.on("message", message => {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**<a:NO:713356411458814022> Zaten Eklenmiş !!!**")
-    message.channel.send("**<a:YES:713356424159428649> Başarılı Bir Şekilde 7/24 Yapıldı !!!**");
+    let yardım = new Discord.RichEmbed()
+        .setAuthor(client.user.username, client.user.avatarURL)
+        .setColor(0x6A3DB8)
+        .setDescription("**<a:YES:713356424159428649> Başarılı Bir Şekilde 7/24 Yapıldı !!!**")
+        .setFooter(`© ${client.user.username}`, client.user.avatarURL)
+        .setTimestamp()
+    message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
+    message.channel.send();
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
     return message.channel.send("<a:NO:713356411458814022> **Error Yalnızca Mutlak URL'ler Desteklenir.**")
