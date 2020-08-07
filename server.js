@@ -1,6 +1,6 @@
 require("express")().listen(1343);
 
-const db = require("quick.db");
+const db = require("quick.db"); 
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
 client.login("NzQwODc1NDE1Nzg2MDk0NjA0.XyvX_w.Lxi4lbOJEpRF7GN0gQuhjXPr51s");
@@ -92,7 +92,7 @@ let embed = new Discord.RichEmbed()
 [Destek Sunucumuz](https://discord.gg/HkQ9Uaf)`)
 .setThumbnail(client.user.avatarURL)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`**2020 © Uptime | Kodlayan MertBhey , Editleyen GamerWolf.**`, client.user.avatarURL)
+.setFooter(`**2020 © Uptime | Kodlayan Emir Bolat , Editleyen GamerWolf.**`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
