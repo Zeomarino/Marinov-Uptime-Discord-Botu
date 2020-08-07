@@ -81,18 +81,11 @@ client.on("message", message => {
 let embed = new Discord.RichEmbed()
 .setColor('#4ca74c')
 .addField(`Uptime Bot Yardım Sistemi`, `**Bot Glitch Sitelerinin 7/24 Açık Çalışmasını Sağlayan Bir Sistem İçerir. Sistemdeki Bağlantılar Herhangi Bir Bakım Gerektirmeden 7/24 Çalışır.**`)
-.addField(`Genel Komutlar`,`
+.addField(`Komutlar`,`
 
-\`p!yardım\` - Yardım Menüsünü Gösterir.
-\`p!uptime\` - Sisteme Bot Eklersiniz.
-\`p!botsay\` - Sistemde Kaç Bot Olduğunu Listeler.
 `)
-.addField(`Link`, `[GamerWolf - YouTube](https://www.youtube.com/channel/UCru0cqYPRfERBkQ_uRtcFdw)
-[Botumuzu Ekleyin](https://discord.com/oauth2/authorize?client_id=740875415786094604&scope=bot&permissions=8)
-[Destek Sunucumuz](https://discord.gg/HkQ9Uaf)`)
-.setThumbnail(client.user.avatarURL)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`**2020 © Uptime | Kodlayan Emir Bolat , Editleyen GamerWolf.**`, client.user.avatarURL)
+.setFooter(`2020 © Uptime | Kodlayan Emir Bolat , Editleyen GamerWolf.`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
