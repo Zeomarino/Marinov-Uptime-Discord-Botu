@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db"); 
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("NzQxNjI4NzkwNjY4Nzg3ODIz.Xy6Vog.AJBvm3Cej-w6TbhHPlpIA3HAMN0");
+client.login("TOKEN");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -103,7 +103,7 @@ return message.channel.send(embed);
 client.on("message", async message => {
 
   if(!message.content.startsWith("p!eval")) return;
-  if(!["573548185428164630"].includes(message.author.id)) return;
+  if(!["SAHİP İD"].includes(message.author.id)) return;
   var args = message.content.split("p!eval")[1]
   if(!args) return message.channel.send("**⛔ ..**")
   
