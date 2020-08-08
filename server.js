@@ -45,8 +45,7 @@ client.on("message", message => {
         .setDescription("**✅ Başarılı Bir Şekilde 7/24 Yapıldı !!!**")
         .setFooter(`© ${client.user.username}`, client.user.avatarURL)
         .setTimestamp()
-    message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
-    message.channel.send();
+     message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
     db.push("linkler", { url: link, owner: message.author.id})
   }).catch(e => {
     let yardım = new Discord.RichEmbed()
@@ -55,8 +54,7 @@ client.on("message", message => {
         .setDescription("⛔ **Error Yalnızca Mutlak URL'ler Desteklenir.**")
         .setFooter(`© ${client.user.username}`, client.user.avatarURL)
         .setTimestamp()
-    message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
-    return message.channel.send()
+   return message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
   })
   }
 })
@@ -80,16 +78,14 @@ client.on("message", message => {
   if(spl[0] == "u!yardım") {
 let embed = new Discord.RichEmbed()
 .setColor('#070706')
-.addField(`Discord Uptime Bot Yardım Sistemi`, `**Discord Botlarınız Benim Sayemde 7/24  :) `)
-.addField(``,`
+.addField(`Discord Uptime Bot Yardım Sistemi`, `Discord Botlarınız Benim Sayemde 7/24`)
+.setDescription(`**Komutlar**
 
- **u!yardım**  | Discord Uptime Botunun Yardım Sistemini Gösterir  (Burası)
+ 🌙 **u!yardım**  | Discord Uptime Botunun Yardım Sistemini Gösterir  (Burası)
 
- **u!uptime-ekle**  | Botunuzu 7/24 Aktif Tutmak İçin Kullanılan Komut
+ 🔋 **u!uptime**  | Botunuzu 7/24 Aktif Tutmak İçin Kullanılan Komut
 
- **u!eval**    | Eval
-
- **u!botsay** | Sistemde Kaç Bot Olduğuna Bakar
+ ⚡ **u!botsay** | Sistemde Kaç Bot Olduğuna Bakar
 
 `)
 .setAuthor(`Uptime`, client.user.avatarURL)
@@ -99,43 +95,6 @@ return message.channel.send(embed);
  
 })
 
-
-client.on("message", async message => {
-
-  if(!message.content.startsWith("p!eval")) return;
-  if(!["573548185428164630"].includes(message.author.id)) return;
-  var args = message.content.split("p!eval")[1]
-  if(!args) return message.channel.send("**⛔ ..**")
-  
-      const code = args
-    
-    
-      function clean(text) {
-          if (typeof text !== 'string')
-              text = require('util').inspect(text, { depth: 3 })
-          text = text
-              .replace(/`/g, '`' + String.fromCharCode(8203))
-              .replace(/@/g, '@' + String.fromCharCode(8203))
-          return text;
-      };
-  
-      var evalEmbed = ""
-      try {
-          var evaled = await clean(await eval(await code));
-          if (evaled.constructor.name === 'Promise') evalEmbed = `\`\`\`\n${evaled}\n\`\`\``
-          else evalEmbed = `\`\`\`js\n${evaled}\n\`\`\``
-          
-  if(evaled.length < 1900) { 
-     message.channel.send(`\`\`\`js\n${evaled}\`\`\``);
-  } else {
-    var hast = await require("hastebin-gen")(evaled, { url: "https://hasteb.in" } )
-  message.channel.send(hast)
-  }
-      } catch (err) {
-          message.channel.send(`\`\`\`js\n${err}\n\`\`\``);
-      }
-  })
-  
   const log = message => {
   console.log(`${message}`);
 }
