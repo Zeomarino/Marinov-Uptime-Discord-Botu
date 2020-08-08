@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db"); 
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("NzQwODc1NDE1Nzg2MDk0NjA0.XyvX_w.Lxi4lbOJEpRF7GN0gQuhjXPr51s");
+client.login("Token");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`p!yardım | GamerWolf`)
+  client.user.setActivity(`u!yardım | GamerWolf`)
   console.log(`Logined`)
 })
 
@@ -34,7 +34,7 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "p!uptime") {
+  if(spl[0] == "u!uptime-ekle") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**<a:NO:713356411458814022> Zaten Eklenmiş !!!**")
@@ -65,7 +65,7 @@ client.on("message", message => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "p!botsay") {
+  if(spl[0] == "u!botsay") {
   var link = spl[1]
  message.channel.send(`**${db.get("linkler").length} / 1000**`)
 }})
@@ -77,15 +77,23 @@ const Discord = require('discord.js');
 client.on("message", message => {
   if(message.author.bot) return;
     var spl = message.content.split(" ");
-  if(spl[0] == "p!yardım") {
+  if(spl[0] == "u!yardım") {
 let embed = new Discord.RichEmbed()
-.setColor('#4ca74c')
-.addField(`Uptime Bot Yardım Sistemi`, `**Bot Glitch Sitelerinin 7/24 Açık Çalışmasını Sağlayan Bir Sistem İçerir. Sistemdeki Bağlantılar Herhangi Bir Bakım Gerektirmeden 7/24 Çalışır.**`)
-.addField(`Komutlar`,`
+.setColor('#070706')
+.addField(`Discord Uptime Bot Yardım Sistemi`, `**Discord Botlarınız Benim Sayemde 7/24  :) `)
+.addField(``,`
+
+ **u!yardım**  | Discord Uptime Botunun Yardım Sistemini Gösterir  (Burası)
+
+ **u!uptime-ekle**  | Botunuzu 7/24 Aktif Tutmak İçin Kullanılan Komut
+
+ **u!eval**    | Eval
+
+ **u!botsay** | Sistemde Kaç Bot Olduğuna Bakar
 
 `)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`2020 © Uptime | Kodlayan Emir Bolat , Editleyen GamerWolf.`, client.user.avatarURL)
+.setFooter(`Uptime Bot | Kodlayan Emir Bolat , Editleyen GamerWolf.`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
@@ -95,7 +103,7 @@ return message.channel.send(embed);
 client.on("message", async message => {
 
   if(!message.content.startsWith("p!eval")) return;
-  if(!["573548185428164630","573548185428164630"].includes(message.author.id)) return;
+  if(!["Kendi İD Niz"].includes(message.author.id)) return;
   var args = message.content.split("p!eval")[1]
   if(!args) return message.channel.send("**<a:NO:713356411458814022> ..**")
   
