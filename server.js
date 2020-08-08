@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db"); 
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("Token");
+client.login("NzQxNjI4NzkwNjY4Nzg3ODIz.Xy6Vog.AJBvm3Cej-w6TbhHPlpIA3HAMN0");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u!yardım | GamerWolf`)
+  client.user.setActivity(`u!yardım | GamerWolf Kanalına Abone Olmayı Unutmayın !!!`)
   console.log(`Logined`)
 })
 
@@ -34,15 +34,15 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "u!uptime-ekle") {
+  if(spl[0] == "u!uptime") {
   var link = spl[1]
   fetch(link).then(() => {
-    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**<a:NO:713356411458814022> Zaten Eklenmiş !!!**")
+    if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Zaten Eklenmiş !!!**")
     
     let yardım = new Discord.RichEmbed()
         .setAuthor(client.user.username, client.user.avatarURL)
         .setColor(0x6A3DB8)
-        .setDescription("**<a:YES:713356424159428649> Başarılı Bir Şekilde 7/24 Yapıldı !!!**")
+        .setDescription("**✅ Başarılı Bir Şekilde 7/24 Yapıldı !!!**")
         .setFooter(`© ${client.user.username}`, client.user.avatarURL)
         .setTimestamp()
     message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
@@ -52,7 +52,7 @@ client.on("message", message => {
     let yardım = new Discord.RichEmbed()
         .setAuthor(client.user.username, client.user.avatarURL)
         .setColor(0x6A3DB8)
-        .setDescription("<a:NO:713356411458814022> **Error Yalnızca Mutlak URL'ler Desteklenir.**")
+        .setDescription("⛔ **Error Yalnızca Mutlak URL'ler Desteklenir.**")
         .setFooter(`© ${client.user.username}`, client.user.avatarURL)
         .setTimestamp()
     message.channel.send(yardım).then(msg => msg.delete(60000)); //60000/60 saniye sonra verilen yanıtı siler
@@ -103,9 +103,9 @@ return message.channel.send(embed);
 client.on("message", async message => {
 
   if(!message.content.startsWith("p!eval")) return;
-  if(!["Kendi İD Niz"].includes(message.author.id)) return;
+  if(!["573548185428164630"].includes(message.author.id)) return;
   var args = message.content.split("p!eval")[1]
-  if(!args) return message.channel.send("**<a:NO:713356411458814022> ..**")
+  if(!args) return message.channel.send("**⛔ ..**")
   
       const code = args
     
