@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u!yardım | GamerWolf Kanalına Abone Olmayı Unutmayın !!!`)
+  client.user.setActivity(`u!yardım | x_REDDAWN_x Kanalına Abone Olmayı Unutmayın !!!`)
   console.log(`Logined`)
 })
 
@@ -89,7 +89,7 @@ let embed = new Discord.RichEmbed()
 
 `)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`Uptime Bot | Kodlayan Emir Bolat , Editleyen GamerWolf.`, client.user.avatarURL)
+.setFooter(`Uptime Bot | x_REDDAWN_x.`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
