@@ -3,7 +3,7 @@ require("express")().listen(1343);
 const db = require("quick.db"); 
 const discord = require("discord.js");
 const client = new discord.Client({ disableEveryone: true });
-client.login("Token");
+client.login("NzQzMTk0NDE5MjA0ODQ5NzE2.XzRHvQ.W_quIQ-TblOFg0Vitbjug6IJD-4");
 const fetch = require("node-fetch");
 const fs = require('fs')
 
@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u!yardım | x_REDDAWN_x Kanalına Abone Olmayı Unutmayın !!!`)
+  client.user.setActivity(`u!yardım | Created By Zeomarino#7777`)
   console.log(`Logined`)
 })
 
@@ -89,7 +89,7 @@ let embed = new Discord.RichEmbed()
 
 `)
 .setAuthor(`Uptime`, client.user.avatarURL)
-.setFooter(`Uptime Bot | x_REDDAWN_x.`, client.user.avatarURL)
+.setFooter(`Marinov Uptime Bot | Created By Zeomarino#7777`, client.user.avatarURL)
 return message.channel.send(embed);
     }
  
