@@ -26,7 +26,7 @@ db.set("linkler", [])
 })
 
 client.on("ready", () => {
-  client.user.setActivity(`u!yardım | Created By Zeomarino#7777`)
+  client.user.setActivity(`mav-yardım | Created By Zeomarino#7777`)
   console.log(`Logined`)
 })
 
@@ -34,7 +34,7 @@ client.on("ready", () => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "u!uptime") {
+  if(spl[0] == "mav-uptime") {
   var link = spl[1]
   fetch(link).then(() => {
     if(db.get("linkler").map(z => z.url).includes(link)) return message.channel.send("**⛔ Zaten Eklenmiş !!!**")
