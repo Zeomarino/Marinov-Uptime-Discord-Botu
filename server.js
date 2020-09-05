@@ -63,7 +63,7 @@ client.on("message", message => {
 client.on("message", message => {
   if(message.author.bot) return;
   var spl = message.content.split(" ");
-  if(spl[0] == "u!botsay") {
+  if(spl[0] == "mav-botsay") {
   var link = spl[1]
  message.channel.send(`**${db.get("linkler").length} / 1000**`)
 }})
@@ -75,17 +75,17 @@ const Discord = require('discord.js');
 client.on("message", message => {
   if(message.author.bot) return;
     var spl = message.content.split(" ");
-  if(spl[0] == "u!yardım") {
+  if(spl[0] == "mav-yardım") {
 let embed = new Discord.RichEmbed()
 .setColor('#070706')
 .addField(`Discord Uptime Bot Yardım Sistemi`, `Discord Botlarınız Benim Sayemde 7/24`)
 .setDescription(`**Komutlar**
 
- 🌙 **u!yardım**  | Discord Uptime Botunun Yardım Sistemini Gösterir  (Burası)
+ 🌙 **mav-yardım**  | Discord Uptime Botunun Yardım Sistemini Gösterir  (Burası)
 
- 🔋 **u!uptime**  | Botunuzu 7/24 Aktif Tutmak İçin Kullanılan Komut
+ 🔋 **mav-uptime**  | Botunuzu 7/24 Aktif Tutmak İçin Kullanılan Komut
 
- ⚡ **u!botsay** | Sistemde Kaç Bot Olduğuna Bakar
+ ⚡ **mav-botsay** | Sistemde Kaç Bot Olduğuna Bakar
 
 `)
 .setAuthor(`Uptime`, client.user.avatarURL)
