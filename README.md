@@ -5,4 +5,4 @@ Kendiniz kullanıp düzenleme yapıcak iseniz prefix mav- üzerinedir değiştir
 
 Glitch üzerindeki Discord botunuzu aktif tumaya yarar.
 
-Destek için discord grubumuza katılabilirsiniz : https://discord.gg/AZvkUpa
+Destek için discord grubumuza katılabilirsiniz : https://discord.gg/BUGRWMY
